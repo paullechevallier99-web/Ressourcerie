@@ -1,0 +1,91 @@
+{
+  "association": {
+    "nom": "La Ressourcerie du Coin",
+    "slogan": "Ce qu'on jette a toujours une deuxième vie.",
+    "ville": "Caen",
+    "maj": "2026-07-14"
+  },
+  "stats": {
+    "kg_reemployes_mois": 2437,
+    "objets_sauves_total": 15320,
+    "adherents": 187,
+    "benevoles_actifs": 34,
+    "ateliers_ce_mois": 6
+  },
+  "ateliers": [
+    {
+      "id": "at-01",
+      "titre": "Réparation de vélos",
+      "categorie": "Mécanique",
+      "date": "2026-07-22",
+      "heure": "18h00 - 20h30",
+      "lieu": "Atelier Nord - Caen",
+      "places_restantes": 3,
+      "description": "Freins, dérailleurs, crevaisons : viens réparer ton vélo avec l'aide de bénévoles mécaniciens."
+    },
+    {
+      "id": "at-02",
+      "titre": "Relooking de meubles en palette",
+      "categorie": "Bois",
+      "date": "2026-07-26",
+      "heure": "14h00 - 17h00",
+      "lieu": "Hangar Sud - Mondeville",
+      "places_restantes": 0,
+      "description": "Ponçage, peinture, assemblage : transforme des palettes récupérées en étagère ou table basse."
+    },
+    {
+      "id": "at-03",
+      "titre": "Petite électroménager : le diagnostic",
+      "categorie": "Électronique",
+      "date": "2026-08-02",
+      "heure": "10h00 - 12h30",
+      "lieu": "Atelier Nord - Caen",
+      "places_restantes": 5,
+      "description": "Grille-pain, bouilloire, mixeur en panne : apprends à identifier la panne avant de jeter."
+    },
+    {
+      "id": "at-04",
+      "titre": "Couture et retouche textile",
+      "categorie": "Textile",
+      "date": "2026-08-09",
+      "heure": "14h00 - 16h30",
+      "lieu": "Local Textile - Hérouville",
+      "places_restantes": 7,
+      "description": "Ourlets, boutons, reprises : redonne vie à des vêtements plutôt que de les remplacer."
+    }
+  ],
+  "points_collecte": [
+    {
+      "nom": "Atelier Nord",
+      "adresse": "12 rue des Jardins, 14000 Caen",
+      "lat": 49.1965,
+      "lng": -0.3708,
+      "horaires": "Lun-Sam 9h-18h",
+      "type": "Dépôt général"
+    },
+    {
+      "nom": "Hangar Sud",
+      "adresse": "5 avenue de la Résistance, 14120 Mondeville",
+      "lat": 49.1571,
+      "lng": -0.3218,
+      "horaires": "Mar-Sam 10h-17h",
+      "type": "Meubles et bois"
+    },
+    {
+      "nom": "Local Textile",
+      "adresse": "8 place du Marché, 14200 Hérouville-Saint-Clair",
+      "lat": 49.2072,
+      "lng": -0.3389,
+      "horaires": "Mer et Sam 9h-13h",
+      "type": "Textile"
+    },
+    {
+      "nom": "Point Électro",
+      "adresse": "20 rue de Bayeux, 14000 Caen",
+      "lat": 49.1857,
+      "lng": -0.3745,
+      "horaires": "Jeu-Ven 14h-18h",
+      "type": "Électroménager et électronique"
+    }
+  ]
+}
