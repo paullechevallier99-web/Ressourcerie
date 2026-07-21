@@ -1,0 +1,208 @@
+/* ====================== 
+   CHARTE GRAPHIQUE 
+   ====================== */
+:root {
+    --vert-principal: #1F4A3C;
+    --vert-secondaire: #8FBF8F;
+    --terre-cuite: #D97C4E;
+    --vert-clair: #A8B89E;
+    --gris-fonce: #2C2C2C;
+    --beige: #F8F6F2;
+}
+
+/* ====================== 
+   RESET & GÉNÉRAL 
+   ====================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    line-height: 1.6;
+    color: var(--gris-fonce);
+    background-color: var(--beige);
+}
+
+/* ====================== 
+   HEADER 
+   ====================== */
+.header {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 1rem 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo img {
+    height: 60px;
+    width: auto;
+}
+
+.navigation a {
+    color: var(--vert-principal);
+    text-decoration: none;
+    margin-left: 2rem;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.navigation a:hover {
+    color: var(--terre-cuite);
+}
+
+/* ====================== 
+   HERO 
+   ====================== */
+.hero {
+    background: linear-gradient(rgba(31, 74, 60, 0.85), rgba(31, 74, 60, 0.85)), 
+                url('photo/fond2.jpg') center/cover no-repeat;
+    color: white;
+    padding: 180px 5% 120px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3.2rem;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    max-width: 800px;
+    margin: 0 auto 2.5rem;
+    opacity: 0.95;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--terre-cuite);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background-color: #c56d42;
+    transform: translateY(-3px);
+}
+
+/* ====================== 
+   SECTIONS 
+   ====================== */
+section {
+    padding: 100px 5%;
+}
+
+h2 {
+    color: var(--vert-principal);
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+/* Cards */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.3s;
+    border: 1px solid var(--vert-clair);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card h3 {
+    color: var(--vert-principal);
+    margin-bottom: 1rem;
+}
+
+/* À propos */
+.about {
+    background-color: white;
+    text-align: center;
+}
+
+/* Contact */
+.contact form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.contact input,
+.contact textarea {
+    padding: 14px 18px;
+    border: 2px solid var(--vert-clair);
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.contact button {
+    background-color: var(--vert-principal);
+    color: white;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact button:hover {
+    background-color: #143828;
+}
+
+/* ====================== 
+   FOOTER 
+   ====================== */
+.footer {
+    background-color: var(--vert-principal);
+    color: white;
+    text-align: center;
+    padding: 3rem 5%;
+    margin-top: 3rem;
+}
+
+/* ====================== 
+   RESPONSIVE 
+   ====================== */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .navigation a {
+        margin: 0 1rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.4rem;
+    }
+}
