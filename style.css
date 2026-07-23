@@ -131,6 +131,13 @@ h2 {
     border: 1px solid var(--vert-clair);
 }
 
+#liste-ateliers {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
 .card:hover {
     transform: translateY(-10px);
 }
