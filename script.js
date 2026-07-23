@@ -29,13 +29,14 @@ const ateliers = [
     {
       titre: "Couture et retouche textile",
       categorie: "Textile",
-      date: "2026-08-09",
+      date: "09/08/2026",
       heure: "14h00 - 16h30",
       lieu: "Local Textile - Hérouville",
       places_restantes: 7,
       description: "Ourlets, boutons, reprises : redonne vie à des vêtements plutôt que de les remplacer."
     }
 ];
+
 
 
 function afficherAteliers(ateliers) {
@@ -83,53 +84,113 @@ function afficherAteliers(ateliers) {
     });
 }
 
-
-
 function ouvrirFormulaire(atelier, index) {
 
     const formulaire = document.getElementById("formulaire-inscription");
+    const overlay = document.getElementById("overlay-inscription");
 
     formulaire.style.display = "block";
-
+    overlay.style.display = "block";
 
     formulaire.innerHTML = `
-        <h2>Inscription : ${atelier.titre}</h2>
+        <h3>Inscription : <br>${atelier.titre}</h3>
 
-        <input id="nom" type="text" placeholder="Votre nom">
+        <form id="inscriptionForm" novalidate>
 
-        <input id="email" type="email" placeholder="Votre email">
+            <label for="nom">Prénom</label>
+            <input
+                id="nom"
+                type="text"
+                placeholder="Votre prénom"
+                required>
 
-        <button id="valider">
-            Confirmer l'inscription
-        </button>
+            <label for="email">Email</label>
+            <input
+                id="email"
+                type="email"
+                placeholder="Votre email"
+                required>
+
+            <p id="message-formulaire"></p>
+
+            <div class="actions">
+                <button type="submit">Confirmer l'inscription</button>
+                <button id="annuler" type="button" class="btn-secondaire">Annuler</button>
+            </div>
+
+        </form>
     `;
 
+    function fermer() {
+        formulaire.style.display = "none";
+        overlay.style.display = "none";
+    }
 
-    document.getElementById("valider").addEventListener("click", () => {
+    document.getElementById("annuler").addEventListener("click", fermer);
+    overlay.onclick = fermer;
 
-        const nom = document.getElementById("nom").value;
-        const email = document.getElementById("email").value;
+    const form = document.getElementById("inscriptionForm");
 
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
 
-        if(nom === "" || email === "") {
-            alert("Veuillez remplir tous les champs");
+        const prenom = document.getElementById("nom").value.trim();
+        const email = document.getElementById("email").value.trim();
+
+        // Validation prénom
+        const regexPrenom = /^[A-Za-zÀ-ÖØ-öø-ÿ' -]{2,30}$/;
+
+        if (!regexPrenom.test(prenom)) {
+            const message = document.getElementById("message-formulaire");
+
+            message.textContent = "Veuillez saisir un prénom valide.";
+            message.className = "message-erreur";
+
+            document.getElementById("nom").focus();
+            return;
+
+        }
+
+        // Validation email
+        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!regexEmail.test(email)) {
+            const message = document.getElementById("message-formulaire");
+            message.textContent = "Veuillez saisir une adresse e-mail valide.";
+            message.className = "message-erreur";
+
+            document.getElementById("email").focus();
             return;
         }
 
-
         ateliers[index].places_restantes--;
 
-        alert("Inscription confirmée pour " + nom);
+        formulaire.innerHTML = `
+            <div class="confirmation">
+                <h3>✅ Inscription confirmée !</h3>
 
+                <p>
+                    Merci <strong>${prenom}</strong>, votre inscription à 
+                    <strong>${atelier.titre}</strong>
+                    est enregistrée. Vous allez recevoir un courriel de rappel à l'adresse mail 
+                    <strong>${email}</strong>.
+                </p>
 
-        formulaire.style.display = "none";
+                <button id="fermer-confirmation">
+                    Retour aux ateliers
+                </button>
+            </div>
+        `;
 
-        afficherAteliers(ateliers);
-
+    document
+        .getElementById("fermer-confirmation")
+        .addEventListener("click", () => {
+            fermer();
+            afficherAteliers(ateliers);
+        });
     });
 
 }
-
 
 
 afficherAteliers(ateliers);
