@@ -185,6 +185,64 @@ h2 {
     background-color: #143828;
 }
 
+/* Une seule colonne */
+#liste-ateliers {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+/* Contenu de la carte : infos + emplacement côte à côte */
+.card-contenu {
+    display: flex;
+    gap: 2rem;
+    text-align: left;
+    align-items: stretch;
+}
+
+.card-info {
+    flex: 1.4;
+}
+
+.lieu-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    background: var(--beige);
+    border: 1px solid var(--vert-clair);
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.mini-carte {
+    width: 100%;
+    height: 160px;
+    border: none;
+    border-radius: 8px;
+}
+
+.lieu-details p {
+    margin: 0.2rem 0;
+    font-size: 0.9rem;
+}
+
+.type-badge {
+    display: inline-block;
+    background: var(--vert-secondaire);
+    color: var(--vert-principal);
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 50px;
+    font-size: 0.8rem !important;
+}
+
+@media (max-width: 768px) {
+    .card-contenu {
+        flex-direction: column;
+    }
+}
 /* ====================== 
    FOOTER 
    ====================== */
@@ -193,8 +251,9 @@ h2 {
     color: white;
     text-align: center;
     padding: 3rem 5%;
-    margin-top: 3rem;
+    font-size:12px;
 }
+
 
 /* ====================== 
    RESPONSIVE 
@@ -249,6 +308,7 @@ h2 {
     color: var(--vert-principal);
     text-align: center;
     margin-bottom: 1.8rem;
+    font-size: 25px;
 }
 
 .formulaire label {
