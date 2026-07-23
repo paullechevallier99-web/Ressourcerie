@@ -213,3 +213,167 @@ h2 {
         font-size: 2.4rem;
     }
 }
+/* ======================
+   POPUP FORMULAIRE
+   ====================== */
+
+.overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(31, 74, 60, 0.55);
+    backdrop-filter: blur(3px);
+    z-index: 1000;
+}
+
+.formulaire {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(90%, 500px);
+
+    background: white;
+    border-radius: 15px;
+    padding: 2.5rem;
+
+    border: 1px solid var(--vert-clair);
+    box-shadow: 0 15px 40px rgba(0,0,0,.2);
+
+    z-index: 1001;
+}
+
+.formulaire h2,
+.formulaire h3 {
+    color: var(--vert-principal);
+    text-align: center;
+    margin-bottom: 1.8rem;
+}
+
+.formulaire label {
+    display: block;
+    color: var(--vert-principal);
+    font-weight: 600;
+    margin-bottom: .4rem;
+}
+
+.formulaire input,
+.formulaire textarea,
+.formulaire select {
+    width: 100%;
+    padding: 14px 18px;
+    margin-bottom: 1.2rem;
+
+    border: 2px solid var(--vert-clair);
+    border-radius: 8px;
+
+    font-size: 1rem;
+    font-family: inherit;
+
+    transition: .25s;
+}
+
+.formulaire input:focus,
+.formulaire textarea:focus,
+.formulaire select:focus {
+    outline: none;
+    border-color: var(--vert-principal);
+    box-shadow: 0 0 0 4px rgba(31, 74, 60, .15);
+}
+
+.formulaire textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.formulaire button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 1rem;
+
+    border: none;
+    border-radius: 50px;
+
+    background: var(--terre-cuite);
+    color: white;
+
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.formulaire button:hover {
+    background: #c56d42;
+    transform: translateY(-2px);
+}
+
+.formulaire .btn-secondaire {
+    background: var(--vert-principal);
+}
+
+.formulaire .btn-secondaire:hover {
+    background: #143828;
+}
+
+.formulaire .actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 1rem;
+}
+
+.formulaire .actions button {
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    .formulaire {
+        width: 95%;
+        padding: 1.8rem;
+    }
+
+    .formulaire .actions {
+        flex-direction: column;
+    }
+}
+#message-formulaire {
+    margin: 1rem 0;
+    text-align: center;
+    font-weight: 600;
+}
+
+.message-erreur {
+    color: #c0392b;
+}
+
+.message-succes {
+    color: var(--vert-principal);
+}
+
+
+.confirmation {
+    text-align: center;
+    padding: 1rem;
+}
+
+.confirmation h3 {
+    font-size: 25px;
+    color: var(--vert-principal);
+    margin-bottom: 1rem;
+}
+
+.confirmation p {
+    margin-bottom: 2rem;
+}
+
+.confirmation button {
+    background-color: var(--terre-cuite);
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+}
