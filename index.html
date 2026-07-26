@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Ressourcerie du Coin</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 
 </head>
 
@@ -72,6 +72,23 @@
             </p>
 
         </section>
+
+        <section class="chiffres" id="chiffres">
+
+            <h2>Quelques chiffres</h2>
+            <p class="chiffres-intro">
+                Grâce à l'engagement de nos bénévoles et adhérents, voici ce que nous
+                accomplissons ensemble mois après mois.
+            </p>
+
+            <div class="stats-grid" id="liste-stats">
+                <!-- Les chiffres sont générés automatiquement depuis script.js -->
+            </div>
+
+            <p class="stats-maj" id="stats-maj"></p>
+
+        </section>
+
         <section class="missions" id="missions">
             <h2>Nos Missions</h2>
             <div class="cards">
@@ -105,66 +122,59 @@
 
         </section>
 
-
-
-
-        <section class="about" id="apropos">
-
-            <h2>
-                À propos
-            </h2>
-
-            <p>
-
-            </p>
-
-        </section>
-
-
-
-
-
-        <section class="contact" id="contact">
-
-            <h2>
-                Contact
-            </h2>
-
-
-            <form>
-
-                <input type="text" placeholder="Votre nom">
-
-                <input type="email" placeholder="Votre email">
-
-                <textarea placeholder="Votre message"></textarea>
-
-                <button>
-                    Envoyer
-                </button>
-
-            </form>
-
-
-        </section>
-        <section>
-
-            Répare & Réutilise          Contact          Informations
-            Ateliers participatifs      ✉ contact@...    Mentions légales
-            de réparation               📍 Caen          Politique de confidentialité
-            et création à Caen
-        </section>
-
     </main>
-
-
-
 
     <footer class="footer">
 
-        <p>
-            © 2026 Répare & Réutilise
-        </p>
+        <div class="footer-contenu">
+
+            <div class="footer-bloc footer-a-propos">
+                <img src="photo/logoecri.png" alt="La Ressourcerie du Coin" class="footer-logo">
+                <p>
+                    Ce qu'on jette a toujours une deuxième vie. Réparer, réemployer et recycler
+                    au cœur de Caen depuis 2026.
+                </p>
+                <div class="footer-reseaux">
+                    <a href="https://facebook.com" aria-label="Facebook">📘</a>
+                    <a href="https://instagram.com" aria-label="Instagram">📷</a>
+                    <a href="https://linkedin.com" aria-label="LinkedIn">💼</a>
+                </div>
+            </div>
+
+            <div class="footer-bloc">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="page/index2.html">Nos activités</a></li>
+                    <li><a href="page/index3.html">Nos points de collecte</a></li>
+                    <li><a href="page/index2.html#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-bloc">
+                <h4>Contact</h4>
+                <ul class="footer-contact">
+                    <li>✉ contact@laressourceriecoin.fr</li>
+                    <li>☎ 02 31 00 00 00</li>
+                    <li>📍 12 rue des Jardins, 14000 Caen</li>
+                </ul>
+            </div>
+
+            <div class="footer-bloc">
+                <h4>Informations</h4>
+                <ul>
+                    <li><a href="/page/index5.html">Mentions légales</a></li>
+                    <li><a href="/page/index6.html">Politique de confidentialité</a></li>
+                    <li><a href="#">Devenir bénévole</a></li>
+                    <li><a href="#">Faire un don</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bas">
+            <p>© 2026 La Ressourcerie du Coin — Tous droits réservés</p>
+        </div>
 
     </footer>
 
