@@ -5,7 +5,7 @@
     <link rel="icon" type="image/png" href="../photo/logonglet.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Ressourcerie du Coin</title>
+    <title>Ateliers - La Ressourcerie du Coin</title>
     <link rel="stylesheet" href="../style.css">
         <script src="../script.js" defer></script>
 
@@ -16,13 +16,12 @@
     <header class="header">
 
         <div class="logo">
-            <img src="../photo/logoecri.png" alt="logo" 
-             />
+            <img src="../photo/logoecri.png" alt="logo"/>
         </div>
 
         <nav class="navigation">
             <a href="../index.html">Accueil</a>
-            <a href="index2.html">Nos Activités</a>
+            <a href="index2.html">Nos ateliers</a>
             <a href="index3.html">Nos points de collecte</a>
             <a href="#contact">Contact</a>
         </nav>
@@ -55,55 +54,17 @@
         <section class="ateliers" id="ateliers">
 
             <h2>
-                Nos points de collecte
+                Nos ateliers
             </h2>
-            <div id="liste-ateliers" class="cards" data-page="collecte">
+            <div id="liste-ateliers" class="cards">
 
-            </div>         
+            </div>
+            <!-- Overlay + formulaire d'inscription -->
+            <div id="overlay-inscription" class="overlay"></div>
+            <div id="formulaire-inscription" class="formulaire"></div>           
                     
 
         </section>
-        
-
-        <section class="about" id="apropos">
-
-            <h2>
-            </h2>
-
-            <p>
-
-            </p>
-
-        </section>
-
-
-
-
-
-        <section class="contact" id="contact">
-
-            <h2>
-                Contact
-            </h2>
-
-
-            <form>
-
-                <input type="text" placeholder="Votre nom">
-
-                <input type="email" placeholder="Votre email">
-
-                <textarea placeholder="Votre message"></textarea>
-
-                <button>
-                    Envoyer
-                </button>
-
-            </form>
-
-
-        </section>
-
 
     </main>
 
@@ -112,9 +73,55 @@
 
     <footer class="footer">
 
-        <p>
+        <div class="footer-contenu">
 
-        </p>
+            <div class="footer-bloc footer-a-propos">
+                <img src="../photo/ecrimar.png" alt="La Ressourcerie du Coin" class="footer-logo">
+                <p>
+                    Ce qu'on jette a toujours une deuxième vie. Réparer, réemployer et recycler
+                    au cœur de Caen depuis 2026.
+                </p>
+                <div class="footer-reseaux">
+                    <a href="https://facebook.com" aria-label="Facebook">📘</a>
+                    <a href="https://instagram.com" aria-label="Instagram">📷</a>
+                    <a href="https://linkedin.com" aria-label="LinkedIn">💼</a>
+                </div>
+            </div>
+
+            <div class="footer-bloc">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="index2.html">Nos ateliers</a></li>
+                    <li><a href="index3.html">Nos points de collecte</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-bloc">
+                <h4>Contact</h4>
+                <ul class="footer-contact">
+                    <li>✉ contact@laressourceriecoin.fr</li>
+                    <li>☎ 02 31 00 00 00</li>
+                    <li>📍 12 rue des Jardins, 14000 Caen</li>
+                </ul>
+            </div>
+
+            <div class="footer-bloc">
+                <h4>Informations</h4>
+                <ul>
+                    <li><a href="index5.html">Mentions légales</a></li>
+                    <li><a href="index6.html">Politique de confidentialité</a></li>
+                    <li><a href="#">Devenir bénévole</a></li>
+                    <li><a href="#">Faire un don</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bas">
+            <p>© 2026 La Ressourcerie du Coin — Tous droits réservés</p>
+        </div>
 
     </footer>
 
