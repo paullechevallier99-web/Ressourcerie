@@ -16,6 +16,7 @@ const data = {
         {
             id: "at-01",
             titre: "Réparation de vélos",
+            image: "at1.jpg",
             categorie: "Mécanique",
             date: "2026-07-22",
             heure: "18h00 - 20h30",
@@ -26,6 +27,7 @@ const data = {
         {
             id: "at-02",
             titre: "Relooking de meubles en palette",
+            image: "at2.jpg",
             categorie: "Bois",
             date: "2026-07-26",
             heure: "14h00 - 17h00",
@@ -36,6 +38,7 @@ const data = {
         {
             id: "at-03",
             titre: "Petite électroménager : le diagnostic",
+            image: "at3.jpg",
             categorie: "Électronique",
             date: "2026-08-02",
             heure: "10h00 - 12h30",
@@ -46,13 +49,36 @@ const data = {
         {
             id: "at-04",
             titre: "Couture et retouche textile",
+            image: "at4.jpg",
             categorie: "Textile",
             date: "2026-08-09",
             heure: "14h00 - 16h30",
             lieu: "Local Textile - Hérouville",
             places_restantes: 7,
             description: "Ourlets, boutons, reprises : redonne vie à des vêtements plutôt que de les remplacer."
-        }
+        },
+        {
+            id: "at-05",
+            titre: "Création d'objets déco à partir de matériaux recyclés",
+            image: "at1.jpg",
+            categorie: "Créatif",
+            date: "2026-08-16",
+            heure: "14h00 - 17h00",
+            lieu: "Atelier Nord - Caen",
+            places_restantes: 6,
+            description: "Donne une seconde vie à des matériaux récupérés en réalisant des objets de décoration uniques : vases, cadres, photophores ou suspensions."
+        },
+        {
+            id: "at-06",
+            titre: "Création d'un composteur",
+            image: "at1.jpg",
+            categorie: "Jardin",
+            date: "2026-08-30",
+            heure: "10h00 - 12h30",
+            lieu: "Hangar Sud - Mondeville",
+            places_restantes: 1,
+            description: "Apprends à fabriquer un composteur en bois de récupération et découvre les bonnes pratiques pour valoriser tes déchets organiques."
+        },
     ],
     points_collecte: [
         {
@@ -128,10 +154,13 @@ function afficherAteliers(ateliers) {
                     src="https://www.openstreetmap.org/export/embed.html?bbox=${point.lng - decalage}%2C${point.lat - decalage}%2C${point.lng + decalage}%2C${point.lat + decalage}&layer=mapnik&marker=${point.lat}%2C${point.lng}">
                 </iframe>
                 <div class="lieu-details">
-                    <p><strong>📍 ${point.nom}</strong></p>
-                    <p>${point.adresse}</p>
-                    <p>🕒 ${point.horaires}</p>
-                    <span class="type-badge">${point.type}</span>
+                    <div class="lieu-adresse">
+                        <p><strong>📍 ${point.nom}</strong></p>
+                        <p>${point.adresse}</p>
+                    </div>
+                    <div class="lieu-horaires">
+                        🕒 ${point.horaires}
+                    </div>
                 </div>
             </div>
         ` : "";
@@ -154,6 +183,7 @@ function afficherAteliers(ateliers) {
                             : `🔴 Complet`
                         }
                     </p>
+                    <img src="../photo/${atelier.image}" alt="${atelier.titre}" class="photo-atelier">
                 </div>
 
                 ${carteHTML}
@@ -173,6 +203,64 @@ function afficherAteliers(ateliers) {
 
             ouvrirFormulaire(atelier, index);
         });
+
+        container.appendChild(card);
+
+    });
+}
+function afficherPointsCollecte() {
+
+    const container = document.getElementById("liste-ateliers");
+    container.innerHTML = "";
+
+    const decalage = 0.012;
+
+    pointsCollecte.forEach((point) => {
+
+        const card = document.createElement("div");
+        card.classList.add("card");
+
+        // Ateliers qui se déroulent à ce point de collecte
+        const ateliersAssocies = ateliers.filter(a => a.lieu.includes(point.nom));
+
+        const listeAteliersHTML = ateliersAssocies.length > 0
+            ? ateliersAssocies.map(a => `
+                <div class="chip-atelier">
+                    ${a.titre}
+                    <span class="chip-date">${formatDateFr(a.date)}</span>
+                </div>
+            `).join("")
+            : `<p class="aucun-atelier">Aucun atelier prévu ici pour le moment.</p>`;
+
+        card.innerHTML = `
+            <div class="card-collecte-contenu">
+
+                <div class="collecte-info">
+
+                    <div class="collecte-header">
+                        <h3>📍 ${point.nom}</h3>
+                        <span class="type-badge">${point.type}</span>
+                    </div>
+
+                    <p>${point.adresse}</p>
+                    <p>🕒 ${point.horaires}</p>
+
+                    <div class="ateliers-associes">
+                        <p>Ateliers sur place</p>
+                        ${listeAteliersHTML}
+                    </div>
+
+                </div>
+
+                <iframe
+                    class="grande-carte"
+                    loading="lazy"
+                    referrerpolicy="no-referrer"
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=${point.lng - decalage}%2C${point.lat - decalage}%2C${point.lng + decalage}%2C${point.lat + decalage}&layer=mapnik&marker=${point.lat}%2C${point.lng}">
+                </iframe>
+
+            </div>
+        `;
 
         container.appendChild(card);
 
@@ -300,4 +388,68 @@ function ouvrirFormulaire(atelier, index) {
 }
 
 
-afficherAteliers(ateliers);
+function formatNombre(n) {
+    return n.toLocaleString("fr-FR");
+}
+
+function afficherStats() {
+
+    const container = document.getElementById("liste-stats");
+    if (!container) return;
+
+    const stats = data.stats;
+
+    const items = [
+        {
+            icone: "♻️",
+            valeur: `${formatNombre(stats.kg_reemployes_mois)} kg`,
+            label: "réemployés ce mois-ci"
+        },
+        {
+            icone: "📦",
+            valeur: formatNombre(stats.objets_sauves_total),
+            label: "objets sauvés au total"
+        },
+        {
+            icone: "🧑‍🤝‍🧑",
+            valeur: formatNombre(stats.adherents),
+            label: "adhérents"
+        },
+        {
+            icone: "🙌",
+            valeur: formatNombre(stats.benevoles_actifs),
+            label: "bénévoles actifs"
+        },
+        {
+            icone: "🛠️",
+            valeur: formatNombre(stats.ateliers_ce_mois),
+            label: "ateliers ce mois-ci"
+        }
+    ];
+
+    container.innerHTML = items.map(item => `
+        <div class="stat-card">
+            <div class="stat-icone">${item.icone}</div>
+            <div class="stat-valeur">${item.valeur}</div>
+            <div class="stat-label">${item.label}</div>
+        </div>
+    `).join("");
+
+    const majEl = document.getElementById("stats-maj");
+    if (majEl) {
+        majEl.textContent = `Chiffres mis à jour le ${formatDateFr(data.association.maj)}`;
+    }
+}
+
+afficherStats();
+
+
+const conteneurListe = document.getElementById("liste-ateliers");
+
+if (conteneurListe) {
+    if (conteneurListe.dataset.page === "collecte") {
+        afficherPointsCollecte();
+    } else {
+        afficherAteliers(ateliers);
+    }
+}
