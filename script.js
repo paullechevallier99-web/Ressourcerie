@@ -60,7 +60,7 @@ const data = {
         {
             id: "at-05",
             titre: "Création d'objets déco à partir de matériaux recyclés",
-            image: "at1.jpg",
+            image: "at5.png",
             categorie: "Créatif",
             date: "2026-08-16",
             heure: "14h00 - 17h00",
@@ -71,7 +71,7 @@ const data = {
         {
             id: "at-06",
             titre: "Création d'un composteur",
-            image: "at1.jpg",
+            image: "at6.png",
             categorie: "Jardin",
             date: "2026-08-30",
             heure: "10h00 - 12h30",
@@ -453,3 +453,164 @@ if (conteneurListe) {
         afficherAteliers(ateliers);
     }
 }
+
+
+/* ======================
+   PAGE CONTACT (index4.html)
+   ====================== */
+
+function initFormulaireContact() {
+
+    const form = document.getElementById("formulaireContact");
+    if (!form) return;
+
+    const champSupplementaire = document.getElementById("champ-supplementaire");
+    const messageTextarea = document.getElementById("contact-message");
+    const labelMessage = document.getElementById("label-message");
+    const radios = form.querySelectorAll('input[name="sujet"]');
+
+    const config = {
+        benevole: {
+            placeholder: "Parlez-nous de vous, de vos disponibilités et de ce qui vous motive...",
+            labelMessage: "Votre message",
+            champHTML: `
+                <label for="champ-domaine">Domaine qui vous intéresse</label>
+                <select id="champ-domaine">
+                    <option value="mecanique">Mécanique vélo</option>
+                    <option value="bois">Bois / Menuiserie</option>
+                    <option value="electronique">Électronique</option>
+                    <option value="textile">Textile / Couture</option>
+                    <option value="accueil">Accueil / Caisse</option>
+                    <option value="communication">Communication</option>
+                    <option value="autre">Autre</option>
+                </select>
+            `
+        },
+        question: {
+            placeholder: "Écrivez-nous votre question ou votre demande...",
+            labelMessage: "Votre message",
+            champHTML: ""
+        },
+        objet: {
+            placeholder: "Décrivez l'objet, son état, ses dimensions si utile...",
+            labelMessage: "Description de l'objet",
+            champHTML: `
+                <label for="champ-type-objet">Type d'objet</label>
+                <select id="champ-type-objet">
+                    <option value="meuble">Meuble</option>
+                    <option value="electromenager">Électroménager</option>
+                    <option value="velo">Vélo</option>
+                    <option value="textile">Textile</option>
+                    <option value="autre">Autre</option>
+                </select>
+            `
+        }
+    };
+
+    function appliquerSujet(valeur) {
+        const conf = config[valeur];
+        champSupplementaire.innerHTML = conf.champHTML;
+        messageTextarea.placeholder = conf.placeholder;
+        labelMessage.textContent = conf.labelMessage;
+    }
+
+    radios.forEach(radio => {
+        radio.addEventListener("change", () => appliquerSujet(radio.value));
+    });
+
+    appliquerSujet(form.querySelector('input[name="sujet"]:checked').value);
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const nom = document.getElementById("contact-nom").value.trim();
+        const email = document.getElementById("contact-email").value.trim();
+        const message = messageTextarea.value.trim();
+        const feedback = document.getElementById("message-formulaire-contact");
+
+        const regexNom = /^[A-Za-zÀ-ÖØ-öø-ÿ' -]{2,60}$/;
+        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        feedback.className = "message-erreur";
+
+        if (!regexNom.test(nom)) {
+            feedback.textContent = "Veuillez saisir un prénom et nom valides.";
+            document.getElementById("contact-nom").focus();
+            return;
+        }
+
+        if (!regexEmail.test(email)) {
+            feedback.textContent = "Veuillez saisir une adresse e-mail valide.";
+            document.getElementById("contact-email").focus();
+            return;
+        }
+
+        if (message.length < 5) {
+            feedback.textContent = "Votre message est un peu court, dites-nous en plus !";
+            messageTextarea.focus();
+            return;
+        }
+
+        const section = document.getElementById("contact");
+        section.querySelector(".contact-intro").style.display = "none";
+        form.outerHTML = `
+            <div class="confirmation">
+                <h3>✅ Message envoyé !</h3>
+                <p>
+                    Merci <strong>${nom}</strong>, votre message a bien été transmis à notre équipe.
+                    Nous vous répondrons à l'adresse <strong>${email}</strong> dans les meilleurs délais.
+                </p>
+            </div>
+        `;
+    });
+}
+
+initFormulaireContact();
+
+
+/* ======================
+   PAGE FAIRE UN DON (index7.html)
+   ====================== */
+
+function initPageDons() {
+
+    const boutonsMontant = document.querySelectorAll(".montant");
+    if (boutonsMontant.length === 0) return;
+
+    const inputPersonnalise = document.getElementById("montant-personnalise");
+    const btnDon = document.getElementById("btn-faire-don");
+    let montantChoisi = 10;
+
+    boutonsMontant.forEach(bouton => {
+        bouton.addEventListener("click", () => {
+            boutonsMontant.forEach(b => b.classList.remove("montant-actif"));
+            bouton.classList.add("montant-actif");
+
+            if (bouton.dataset.montant === "autre") {
+                inputPersonnalise.style.display = "block";
+                inputPersonnalise.focus();
+                montantChoisi = null;
+            } else {
+                inputPersonnalise.style.display = "none";
+                montantChoisi = Number(bouton.dataset.montant);
+            }
+        });
+    });
+
+    inputPersonnalise.addEventListener("input", () => {
+        montantChoisi = Number(inputPersonnalise.value) || null;
+    });
+
+    btnDon.addEventListener("click", () => {
+        if (!montantChoisi || montantChoisi <= 0) {
+            alert("Merci de choisir ou saisir un montant valide avant de continuer.");
+            inputPersonnalise.style.display = "block";
+            inputPersonnalise.focus();
+            return;
+        }
+        alert(`Merci pour votre générosité ! Vous allez être redirigé·e vers notre page de paiement sécurisé pour un don de ${montantChoisi} €.`);
+        // À remplacer par la redirection réelle vers la plateforme de don (ex. HelloAsso)
+    });
+}
+
+initPageDons();
