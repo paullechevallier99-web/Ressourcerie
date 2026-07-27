@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <link rel="icon" type="image/png" href="../photo/logonglet.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faire un don – La Ressourcerie du Coin</title>
+    <meta name="description" content="Soutenez La Ressourcerie du Coin par un don financier ou un don d'objets et bénéficiez d'une réduction d'impôt.">
+    <link rel="stylesheet" href="../style.css">
+    <script src="../script.js" defer></script>
+
+</head>
+
+<body>
+
+    <header class="header">
+
+        <div class="logo">
+            <img src="../photo/logoecri.png" alt="logo" />
+        </div>
+
+        <nav class="navigation">
+            <a href="../index.html">Accueil</a>
+            <a href="index2.html">Nos Activités</a>
+            <a href="index3.html">Nos points de collecte</a>
+            <a href="index4.html">Contact</a>
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <section class="hero hero-petit" id="accueil">
+            <div class="hero-content">
+                <h1>Faire un don</h1>
+                <p>Votre soutien nous aide à donner une seconde vie à toujours plus d'objets.</p>
+            </div>
+        </section>
+
+        <section class="dons" id="dons">
+
+            <h2>Comment nous soutenir</h2>
+            <p class="dons-intro">
+                La Ressourcerie du Coin est une association loi 1901 à but non lucratif. Vos dons,
+                financiers ou en nature, nous permettent de faire fonctionner nos ateliers, d'entretenir
+                notre matériel et de sensibiliser toujours plus de monde au réemploi.
+            </p>
+
+            <div class="cards dons-cards">
+
+                <div class="card don-card">
+                    <div class="don-icone">💶</div>
+                    <h3>Don financier</h3>
+                    <p>
+                        Un don ponctuel ou régulier nous aide à couvrir nos frais de fonctionnement
+                        (location d'ateliers, outillage, transport des objets collectés).
+                    </p>
+
+                    <div class="montants">
+                        <button type="button" class="montant" data-montant="10">10 €</button>
+                        <button type="button" class="montant" data-montant="25">25 €</button>
+                        <button type="button" class="montant" data-montant="50">50 €</button>
+                        <button type="button" class="montant montant-autre" data-montant="autre">Autre</button>
+                    </div>
+
+                    <input type="number" id="montant-personnalise" class="montant-input" placeholder="Montant en €" min="1" style="display:none;">
+
+                    <button type="button" class="btn btn-don" id="btn-faire-don">
+                        Faire un don en ligne
+                    </button>
+                    <p class="don-note">
+                        Paiement sécurisé via notre plateforme de collecte
+                        <em>(HelloAsso — lien à intégrer)</em>.
+                    </p>
+                </div>
+
+                <div class="card don-card">
+                    <div class="don-icone">📦</div>
+                    <h3>Don d'objets</h3>
+                    <p>
+                        Meubles, vélos, électroménager, textile : déposez vos objets encore en bon état
+                        dans l'un de nos points de collecte, ou signalez-les-nous pour un enlèvement.
+                    </p>
+                    <a class="btn btn-secondaire" href="index3.html">
+                        Voir les points de collecte
+                    </a>
+                    <a class="btn btn-secondaire" href="index4.html">
+                        Proposer un objet à distance
+                    </a>
+                </div>
+
+                <div class="card don-card">
+                    <div class="don-icone">⏳</div>
+                    <h3>Don de temps</h3>
+                    <p>
+                        Vous n'avez pas de moyens à donner mais un peu de temps ? Rejoignez notre équipe
+                        de bénévoles : tri, réparation, accueil, communication, il y en a pour tous les
+                        goûts.
+                    </p>
+                    <a class="btn btn-secondaire" href="index4.html">
+                        Devenir bénévole
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="don-fiscal">
+                <h3>🧾 Une réduction d'impôt</h3>
+                <p>
+                    En tant qu'association d'intérêt général, La Ressourcerie du Coin peut vous délivrer
+                    un reçu fiscal (Cerfa n°11580*04) pour tout don financier. Vous bénéficiez ainsi
+                    d'une réduction d'impôt sur le revenu égale à <strong>66 % du montant de votre don</strong>,
+                    dans la limite de 20 % de votre revenu imposable.
+                </p>
+                <p class="don-exemple">
+                    Exemple : un don de 30 € ne vous coûte réellement que 10,20 € après réduction d'impôt.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+
+    <footer class="footer">
+
+        <div class="footer-contenu">
+
+            <div class="footer-bloc footer-a-propos">
+                <img src="../photo/ecrimar.png" alt="La Ressourcerie du Coin" class="footer-logo">
+                <p>
+                    Ce qu'on jette a toujours une deuxième vie. Réparer, réemployer et recycler
+                    au cœur de Caen depuis 2026.
+                </p>
+                <div class="footer-reseaux">
+                    <a href="https://facebook.com" aria-label="Facebook">📘</a>
+                    <a href="https://instagram.com" aria-label="Instagram">📷</a>
+                    <a href="https://linkedin.com" aria-label="LinkedIn">💼</a>
+                </div>
+            </div>
+
+            <div class="footer-bloc">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="index2.html">Nos activités</a></li>
+                    <li><a href="index3.html">Nos points de collecte</a></li>
+                    <li><a href="index4.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-bloc">
+                <h4>Contact</h4>
+                <ul class="footer-contact">
+                    <li>✉ contact@laressourceriecoin.fr</li>
+                    <li>☎ 02 31 00 00 00</li>
+                    <li>📍 12 rue des Jardins, 14000 Caen</li>
+                </ul>
+            </div>
+
+            <div class="footer-bloc">
+                <h4>Informations</h4>
+                <ul>
+                    <li><a href="index5.html">Mentions légales</a></li>
+                    <li><a href="index6.html">Politique de confidentialité</a></li>
+                    <li><a href="index4.html">Devenir bénévole</a></li>
+                    <li><a href="index7.html">Faire un don</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bas">
+            <p>© 2026 La Ressourcerie du Coin — Tous droits réservés</p>
+        </div>
+
+    </footer>
+
+
+
+</body>
+
+</html>
