@@ -331,6 +331,271 @@ h2 {
     }
 }
 /* ====================== 
+   HERO RÉDUIT (pages secondaires)
+   ====================== */
+.hero-petit {
+    padding: 130px 5% 70px;
+}
+
+.hero-petit h1 {
+    font-size: 2.4rem;
+}
+
+.navigation a.active {
+    color: var(--terre-cuite);
+}
+
+/* ====================== 
+   PAGE CONTACT 
+   ====================== */
+.contact-page {
+    background-color: white;
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+.contact-intro {
+    text-align: center;
+    max-width: 600px;
+    margin: -2rem auto 2.5rem;
+    color: #555;
+}
+
+.choix-sujet-groupe {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.choix-sujet {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.4rem;
+    padding: 1.4rem 1rem;
+    border: 2px solid var(--vert-clair);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.25s;
+    background: var(--beige);
+}
+
+.choix-sujet:hover {
+    border-color: var(--terre-cuite);
+}
+
+.choix-sujet input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.choix-sujet:has(input:checked) {
+    border-color: var(--vert-principal);
+    background: white;
+    box-shadow: 0 5px 15px rgba(31, 74, 60, 0.15);
+}
+
+.choix-icone {
+    font-size: 1.8rem;
+}
+
+.choix-titre {
+    font-weight: 700;
+    color: var(--vert-principal);
+}
+
+.choix-desc {
+    font-size: 0.8rem;
+    color: #777;
+}
+
+#champ-supplementaire label,
+#champ-supplementaire select {
+    display: block;
+    width: 100%;
+}
+
+#champ-supplementaire select {
+    margin-bottom: 1.2rem;
+    padding: 14px 18px;
+    border: 2px solid var(--vert-clair);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.contact-page label {
+    display: block;
+    color: var(--vert-principal);
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+
+.contact-page input,
+.contact-page textarea {
+    width: 100%;
+    padding: 14px 18px;
+    margin-bottom: 1.2rem;
+    border: 2px solid var(--vert-clair);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.contact-page textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.contact-page button[type="submit"] {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 50px;
+    background: var(--terre-cuite);
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-page button[type="submit"]:hover {
+    background: #c56d42;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 700px) {
+    .choix-sujet-groupe {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ====================== 
+   PAGE FAIRE UN DON 
+   ====================== */
+.dons {
+    background-color: var(--beige);
+}
+
+.dons-intro {
+    max-width: 700px;
+    margin: -2rem auto 3rem;
+    text-align: center;
+    color: #555;
+}
+
+.dons-cards {
+    align-items: stretch;
+}
+
+.don-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.don-icone {
+    font-size: 2.4rem;
+    margin-bottom: 0.3rem;
+}
+
+.montants {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0.5rem 0;
+}
+
+.montant {
+    padding: 10px 18px;
+    border: 2px solid var(--vert-clair);
+    background: white;
+    border-radius: 50px;
+    font-weight: 700;
+    color: var(--vert-principal);
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.montant:hover {
+    border-color: var(--terre-cuite);
+}
+
+.montant-actif {
+    background: var(--vert-principal);
+    border-color: var(--vert-principal);
+    color: white;
+}
+
+.montant-input {
+    width: 100%;
+    padding: 12px 16px;
+    margin-top: 0.3rem;
+    border: 2px solid var(--vert-clair);
+    border-radius: 8px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.btn-don {
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 0.4rem;
+}
+
+.don-note {
+    font-size: 0.8rem;
+    color: #888;
+    text-align: center;
+}
+
+.btn-secondaire {
+    display: inline-block;
+    background-color: var(--vert-principal);
+    color: white;
+    padding: 12px 26px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-secondaire:hover {
+    background-color: #143828;
+    transform: translateY(-3px);
+}
+
+.don-fiscal {
+    max-width: 780px;
+    margin: 3rem auto 0;
+    background: white;
+    border: 1px solid var(--vert-clair);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.don-fiscal h3 {
+    color: var(--vert-principal);
+    margin-bottom: 1rem;
+}
+
+.don-exemple {
+    font-style: italic;
+    color: var(--terre-cuite);
+    font-weight: 600;
+}
+
+/* ====================== 
    PAGES LÉGALES 
    ====================== */
 .page-legale {
